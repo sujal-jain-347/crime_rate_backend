@@ -1,0 +1,5 @@
+The backend of the crime rate project an (web app), written in the python flask framework ,
+it can be deploy independently as there is the server side scripting ,
+or with the frontend which is the repository,
+there are ML models which are the static in the nature of the each state and the cirme,
+the datasets of the crime is also there,  
