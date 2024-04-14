@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>predict</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+
+	<div class="login">
+		<h1>crime rate prediction</h1>
+		<form action="{{ url_for('predict')}}" method="post">
+			<label for="Crime">choose an crime </label>
+			<br></br>
+			<select name="Crime">
+				<option value='Rape'>Rape</option>
+				<option value='Kidnapping and Abduction'>Kidnapping and Abduction</option>
+				<option value='Dowry Deaths'>Dowry Deaths</option>
+				<option value='Assault on women with intent to outrage her modesty'>Assault on women with intent to outrage her modesty</option>
+				<option value='Insult to modesty of Women'>Insult to modesty of Women</option>
+				<option value='Cruelty by Husband or his Relatives'>Cruelty by Husband or his Relatives</option>
+				<option value='Importation of Girls'>Importation of Girls</option>
+			</select>
+			
+			<br> </br>
+			
+			<label for="State">choose an state</label>
+			<br></br>
+			<select name="State" id="Crime_chosen">
+				<option value='ANDHRA PRADESH'>ANDHRA PRADESH</option>
+			<option value='ARUNACHAL PRADESH'>ARUNACHAL PRADESH</option>
+			<option value='ASSAM'>ASSAM</option>
+			<option value='BIHAR'>BIHAR</option>
+			<option value='CHHATTISGARH'>CHHATTISGARH</option>
+			<option value='GOA'>GOA</option>
+			<option value='GUJARAT'>GUJARAT</option>
+			<option value='HARYANA'>HARYANA</option>
+			<option value='HIMACHAL PRADESH'>HIMACHAL PRADESH</option>
+			<option value='JAMMU & KASHMIR'>JAMMU & KASHMIR</option>
+			<option value='JHARKHAND'>JHARKHAND</option>
+			<option value='KARNATAKA'>KARNATAKA</option>
+			<option value='KERALA'>KERALA</option>
+			<option value='MADHYA PRADESH'>MADHYA PRADESH</option>
+			<option value='MAHARASHTRA'>MAHARASHTRA</option>
+			<option value='MANIPUR'>MANIPUR</option>
+			<option value='MEGHALAYA'>MEGHALAYA</option>
+			<option value='MIZORAM'>MIZORAM</option>
+			<option value='NAGALAND'>NAGALAND</option>
+			<option value='ODISHA'>ODISHA</option>
+			<option value='PUNJAB'>PUNJAB</option>
+			<option value='RAJASTHAN'>RAJASTHAN</option>
+			<option value='SIKKIM'>SIKKIM</option>
+			<option value='TAMIL NADU'>TAMIL NADU</option>
+			<option value='TRIPURA'>TRIPURA</option>
+			<option value='UTTAR PRADESH'>UTTAR PRADESH</option>
+			<option value='UTTARAKHAND'>UTTARAKHAND</option>
+			<option value='WEST BENGAL'>WEST BENGAL</option>
+			<option value='ANDAMAN AND NICOBAR ISLANDS'>ANDAMAN AND NICOBAR ISLANDS</option>
+			<option value='CHANDIGARH'>CHANDIGARH</option>
+			<option value='DELHI'>DELHI</option>
+			<option value='LAKSHADWEEP'>LAKSHADWEEP</option>
+			<option value='PUDUCHERRY'>PUDUCHERRY</option>
+			</select>
+
+            <br></br>
+		<button type="submit">Predict</button>
+		</form>
+	<body>
+		
+	 
+	
+	 </div>
+	 <h2>
+     {{result}}
+     <br></br>
+     {{classi}}
+	 </h2>
+
+	 <div class="l">
+		<h1>map of crime</h1>
+		<form action="{{ url_for('map')}}" method="post">
+			<label for="Crime">choose an crime </label>
+			<br></br>
+			<select name="Crime">
+				<option value='Rape'>Rape</option>
+				<option value='Kidnapping and Abduction'>Kidnapping and Abduction</option>
+				<option value='Dowry Deaths'>Dowry Deaths</option>
+				<option value='Assault on women with intent to outrage her modesty'>Assault on women with intent to outrage her modesty</option>
+				<option value='Insult to modesty of Women'>Insult to modesty of Women</option>
+				<option value='Cruelty by Husband or his Relatives'>Cruelty by Husband or his Relatives</option>
+				<option value='Importation of Girls'>Importation of Girls</option>
+			</select>
+			<br></br>
+			<button type="submit" class="map">map</button>
+			<div/>
+			<br></br>
+			<div id="plotly-map"></div>
+			<script>
+
+			</script>
+
+</body>
+</html>

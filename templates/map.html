@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>map</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for("static",filename="main1.css")}}">
+  </head>
+  <body style = "background-color: #2b3d3d;">
+
+    <nav class="navbar navbar-expand-lg  bg-secondary text-white ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">welcome to crime rate precidtion</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link " href="{{url_for("home")}}">home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for("predict")}}">predict</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url_for("map")}}">map</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for("visual")}}">visual</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for("about")}}">about the prediction</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <br>
+      
+    
+    <form action="{{ url_for('map')}}" method="post">
+
+        <h1>map of crime</h1>
+        <br>
+
+        <h1>select an crime</h1>
+
+        <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="Crime">
+        <option value='Rape'>Rape</option>
+				<option value='Kidnapping and Abduction'>Kidnapping and Abduction</option>
+				<option value='Dowry Deaths'>Dowry Deaths</option>
+				<option value='Assault on women with intent to outrage her modesty'>Assault on women with intent to outrage her modesty</option>
+				<option value='Insult to modesty of Women'>Insult to modesty of Women</option>
+				<option value='Cruelty by Husband or his Relatives'>Cruelty by Husband or his Relatives</option>
+				<option value='Importation of Girls'>Importation of Girls</option>
+          </select>
+          <br>
+        
+      <br>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <br>
+
+<!-- After -->
+<div id="plotly-map"></div>
+<script>
+    var fig_json = {{ plotly_map|tojson|safe }};
+    if (fig_json) {
+      console.log(fig_json);
+        var fig = JSON.parse(fig_json);             
+        console.log(fig); 
+        Plotly.newPlot('plotly-map', fig.data, fig.layout); 
+        console.log("Plotly")
+    }
+</script>
+
+  </body>
+  </html>

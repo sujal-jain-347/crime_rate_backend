@@ -1,0 +1,9 @@
+pickle
+json
+plotly
+pandas
+flask
+pymongo
+matplotlib
+numpy
+base64
